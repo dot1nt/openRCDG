@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "arduino_micro_crystal")(type "KiCad")(uri "${KIPRJMOD}/footprints/arduino_micro_crystal/arduino_micro_crystal.kicad_sym")(options "")(descr ""))
+)
