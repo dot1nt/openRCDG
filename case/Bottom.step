@@ -5,20 +5,22 @@ HEADER;
  */
 
 FILE_DESCRIPTION(
-/* description */ (''),
+/* description */ ('',
+'CAx-IF Rec.Pracs.---Representation and Presentation of Product Manufa
+cturing Information (PMI)---4.0---2014-10-13'),
 /* implementation_level */ '2;1');
 
 FILE_NAME(
 /* name */ 'Bottom.step',
-/* time_stamp */ '2023-11-20T20:26:38+01:00',
+/* time_stamp */ '2024-11-30T11:57:36+01:00',
 /* author */ (''),
 /* organization */ (''),
 /* preprocessor_version */ 'ST-DEVELOPER v20',
-/* originating_system */ 'Autodesk Translation Framework v12.14.0.127',
+/* originating_system */ 'Autodesk Translation Framework v13.20.0.188',
 
 /* authorisation */ '');
 
-FILE_SCHEMA (('AUTOMOTIVE_DESIGN { 1 0 10303 214 3 1 1 }'));
+FILE_SCHEMA (('AP242_MANAGED_MODEL_BASED_3D_ENGINEERING_MIM_LF { 1 0 10303 442 1 1 4 }'));
 ENDSEC;
 
 DATA;
@@ -26,7 +28,7 @@ DATA;
 #29,#30,#31,#32,#33,#34,#35,#36,#37,#38,#39,#40,#41,#42,#43),#2381);
 #11=SHAPE_REPRESENTATION_RELATIONSHIP('SRR','None',#2388,#12);
 #12=ADVANCED_BREP_SHAPE_REPRESENTATION('',(#13),#2380);
-#13=MANIFOLD_SOLID_BREP('K\X\F6rper1',#1421);
+#13=MANIFOLD_SOLID_BREP('Body1',#1421);
 #14=FACE_BOUND('',#200,.T.);
 #15=FACE_BOUND('',#205,.T.);
 #16=FACE_BOUND('',#211,.T.);
@@ -1460,7 +1462,7 @@ POSITIVE_RATIO_MEASURE(7850.),#1425);
 #1428=PROPERTY_DEFINITION_REPRESENTATION(#1433,#1430);
 #1429=REPRESENTATION('material name',(#1431),#2380);
 #1430=REPRESENTATION('density',(#1426),#2380);
-#1431=DESCRIPTIVE_REPRESENTATION_ITEM('Stahl','Stahl');
+#1431=DESCRIPTIVE_REPRESENTATION_ITEM('Steel','Steel');
 #1432=PROPERTY_DEFINITION('material property','material name',#2390);
 #1433=PROPERTY_DEFINITION('material property','density of part',#2390);
 #1434=AXIS2_PLACEMENT_3D('',#1974,#1566,#1567);
@@ -2457,9 +2459,8 @@ SOLID_ANGLE_UNIT()
 #2391=PRODUCT_DEFINITION_FORMATION('',$,#2396);
 #2392=PRODUCT_RELATED_PRODUCT_CATEGORY('Bottom','Bottom',(#2396));
 #2393=APPLICATION_PROTOCOL_DEFINITION('international standard',
-'automotive_design',2009,#2394);
-#2394=APPLICATION_CONTEXT(
-'Core Data for Automotive Mechanical Design Process');
+'ap242_managed_model_based_3d_engineering',2011,#2394);
+#2394=APPLICATION_CONTEXT('Managed model based 3d engineering');
 #2395=PRODUCT_CONTEXT('part definition',#2394,'mechanical');
 #2396=PRODUCT('Bottom','Bottom',$,(#2395));
 #2397=PRESENTATION_STYLE_ASSIGNMENT((#2400));
@@ -2474,5 +2475,16 @@ SOLID_ANGLE_UNIT()
 #2406=SURFACE_STYLE_FILL_AREA(#2409);
 #2407=SURFACE_STYLE_FILL_AREA(#2410);
 #2408=SURFACE_STYLE_FILL_AREA(#2411);
+#2409=FILL_AREA_STYLE('Steel - Satin',(#2412));
+#2410=FILL_AREA_STYLE('Aluminum - Anodized Glossy (Grey)',(#2413));
+#2411=FILL_AREA_STYLE('Aluminum - Polished',(#2414));
+#2412=FILL_AREA_STYLE_COLOUR('Steel - Satin',#2415);
+#2413=FILL_AREA_STYLE_COLOUR('Aluminum - Anodized Glossy (Grey)',#2416);
+#2414=FILL_AREA_STYLE_COLOUR('Aluminum - Polished',#2417);
+#2415=COLOUR_RGB('Steel - Satin',0.627450980392157,0.627450980392157,0.627450980392157);
+#2416=COLOUR_RGB('Aluminum - Anodized Glossy (Grey)',0.211764705882353,
+0.211764705882353,0.211764705882353);
+#2417=COLOUR_RGB('Aluminum - Polished',0.96078431372549,0.96078431372549,
+0.964705882352941);
 ENDSEC;
 END-ISO-10303-21;

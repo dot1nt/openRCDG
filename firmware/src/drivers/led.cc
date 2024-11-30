@@ -1,9 +1,13 @@
-#include <Arduino.h>
 #include "led.h"
 
-Led::Led(int led_pin) {
-  pin = led_pin;
+#include <Arduino.h>
+
+Led::Led(int pin) : pin(pin) {
   pinMode(pin, OUTPUT);
+}
+
+Led::~Led() {
+  pinMode(pin, INPUT);
 }
 
 void Led::high() {
@@ -14,18 +18,16 @@ void Led::low() {
   digitalWrite(pin, LOW);
 }
 
-void Led::setup_finished() {
+void Led::setupFinished() {
   blink(2);
   high();
 }
 
 void Led::blink(int times) {
-  int t = 200;
-
   for (int i = 0; i < times; i++) {
     high();
-    delay(t);
+    delay(BLINK_DELAY);
     low();
-    delay(t);
+    delay(BLINK_DELAY);
   }
 }

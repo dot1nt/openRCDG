@@ -3,15 +3,16 @@
 #include <Arduino.h>
 
 class PwmReader {
-  private:
-    bool high;
-    unsigned long rising_start;
+public:
+  PwmReader(int pin);
 
-  public:
-    int pin;
-    float output;
+  void update();
+  unsigned long getValue();
 
-    PwmReader(int pwm_pin);
+private:
+  int pin;
+  unsigned long value = 1500;
 
-    void update();
+  bool high;
+  unsigned long risingStart;
 };

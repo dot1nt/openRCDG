@@ -1,27 +1,23 @@
-#include <Arduino.h>
 #include "pid.h"
 
-#include "config.h"
+#include <Arduino.h>
 
-void PidController::init(float *pids) {
-  d_filter.init(GYRO_D_FILTER_CUTOFF, LOOP_TIME * 1e-6);
+PidController::PidController(float p, float i, float d, float dFilterCutoff, float loopTime)
+    : Kp(p), Ki(i), Kd(d), loopTime(loopTime), dFilter(dFilterCutoff, loopTime) {};
 
-  Kp = pids[0];
-  Ki = pids[1];
-  Kd = pids[2];
-};
-
-void PidController::update(float value) {
-  error = value;
+float PidController::update(float data) {
+  error = data;
 
   proportional = error;
-  integral += error * LOOP_TIME * 1e-6f;
-  integral = constrain(integral, -50, 50);
+  integral += error * loopTime;
+  integral = constrain(integral, -50.0f, 50.0f);
 
-  derivative = (error - last_error) / (LOOP_TIME * 1e-4f);
-  d_filter.update(derivative);
+  derivative = (error - lastError) / loopTime;
+  float derivativeFiltered = dFilter.update(derivative);
 
-  output = Kp * proportional + Ki * integral + Kd * d_filter.output;
+  float output = Kp * proportional + Ki * integral + Kd * derivativeFiltered;
 
-  last_error = error;
+  lastError = error;
+
+  return output;
 }

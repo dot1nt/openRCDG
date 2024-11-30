@@ -7,12 +7,12 @@ The easiest way to build and upload this project is to use the [platformio vscod
 If you are building for a board other than the arduino micro, you will need to change/add the board in the platformio.ini file.
 
 ## Configuration
-Check [CONFIGURATION.md](https://github.com/dot1nt/openRCDG/blob/main/CONFIGURATION.md)
+Configuration variables can be found in the config.h file.
 
 ## Hardware
 I only tested this on an Arduino micro and nano, but it should work on most other boards as well.
 
-Example schematic for an Arduino pro micro with GY-521 gyro:
+Example schematic for an Arduino pro micro with GY-521 imu:
 
 ![schematic](https://github.com/dot1nt/openRCDG/blob/main/assets/schematic.PNG)
 

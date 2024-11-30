@@ -1,11 +1,13 @@
-#include <Arduino.h>
 #include "filter.h"
 
-void Lpf1::init(float cutoff, float lt) {
-  float o = 2.0f * 3.14f * cutoff * lt;
+#include <Arduino.h>
+
+PT1Filter::PT1Filter(float cutoffFrequency, float loopTime) {
+  float o = 2.0f * PI * cutoffFrequency * loopTime;
   k = o / (o + 1.0f);
 }
 
-void Lpf1::update(float data) {
-  output = output + k * (data - output);  
+float PT1Filter::update(float data) {
+  lastOutput = lastOutput + k * (data - lastOutput);
+  return lastOutput;
 }

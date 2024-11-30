@@ -1,12 +1,11 @@
 #pragma once
 
-class Lpf1 {
-  private:
-    float k;
+class PT1Filter {
+public:
+  PT1Filter(float cutoffFrequency, float loopTime);
+  float update(float data);
 
-  public:
-    float output;
-
-    void init(float cutoff, float lt);
-    void update(float data);
+private:
+  float k;
+  float lastOutput;
 };

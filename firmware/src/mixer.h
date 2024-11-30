@@ -1,8 +1,15 @@
 #pragma once
 
-class Mixer {
-  public:
-    float output;
+#include "curve.h"
+#include "endpoints.h"
 
-    void update(float pid_output, float steering_input, float sens_input);
+class Mixer {
+public:
+  Mixer(Curve &gyroCurve, Endpoints &endpoints, bool reverse);
+  float update(float pidOutput, float steeringInput, float sensitivityInput);
+
+private:
+  Curve &gyroCurve;
+  Endpoints &endpoints;
+  bool reverse;
 };

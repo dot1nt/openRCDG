@@ -3,15 +3,18 @@
 #include <Arduino.h>
 
 class Led {
-  private:
-    int pin;
+public:
+  Led(int pin);
+  ~Led();
 
-  public:
-    Led(int led_pin);
+  void high();
+  void low();
 
-    void high();
-    void low();
+  void setupFinished();
+  void blink(int times);
 
-    void setup_finished();
-    void blink(int times);
+private:
+  static constexpr int BLINK_DELAY = 200; // ms
+
+  int pin;
 };

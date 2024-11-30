@@ -3,20 +3,20 @@
 #include "filter.h"
 
 class PidController {
-  private:
-    float Kp, Ki, Kd;
-    float error;
-    float last_error;
+public:
+  PidController(float p, float i, float d, float dFilterCutoff, float loopTime);
+  float update(float data);
 
-    float proportional;
-    float integral;
-    float derivative;
-    
-    Lpf1 d_filter;
+private:
+  float Kp, Ki, Kd;
+  float loopTime;
 
-  public:
-    float output;
+  float error;
+  float lastError;
 
-    void init(float *pids);
-    void update(float value);
+  float proportional;
+  float integral;
+  float derivative;
+
+  PT1Filter dFilter;
 };
